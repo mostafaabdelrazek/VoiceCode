@@ -1,19 +1,12 @@
-import 'dart:io';
-
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:voice_code/constants.dart';
 import 'package:voice_code/services/auth.dart';
-import 'package:voice_code/main.dart';
 import 'Home.dart';
-import 'package:adobe_xd/page_link.dart';
 import 'SignUp.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-import 'package:permission_handler/permission_handler.dart';
-// import 'package:ext_storage/ext_storage.dart';
+
 
 class SignIn extends StatefulWidget {
 

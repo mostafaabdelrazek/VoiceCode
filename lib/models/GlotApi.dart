@@ -17,7 +17,7 @@ class GlotApi{
   }
   void filedata(String fileNameWithExtension , String fileContent ){
     _data = json.encode({
-      "language": "python", "title": "test", "public": true,
+      //"language": "$language", "title": "$u.id", "public": true,
       "files": [{"name": "$fileNameWithExtension","content": "$fileContent"}]
     });
   }
@@ -29,5 +29,4 @@ class GlotApi{
     );
     return response.body;
   }
-
 }

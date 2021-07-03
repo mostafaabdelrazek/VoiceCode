@@ -4,8 +4,9 @@ import 'package:voice_code/components/rounded_card.dart';
 import 'package:flutter/material.dart';
 import 'package:voice_code/components/menu.dart';
 import 'package:voice_code/screens/ExistingFilesScreen.dart';
-import 'CreateFileScreen.dart';
 import 'package:voice_code/models/language.dart';
+import 'package:voice_code/models/FileModel.dart';
+
 
 
 class Home extends StatefulWidget {
@@ -177,10 +178,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           Row(
                             children: [
                               RoundedCard(
-                                onTap: (){
+                                onTap: () async{
+                                  dynamic files = await FileModel.getAllFiles(c.extension.toString());
                                   Navigator.push(context,
                                       MaterialPageRoute( builder:  (context) => ExistingFilesScreen(
                                         choosedLan: c,
+                                        files:files,
                                       ))
                                   );
                                 },
@@ -188,15 +191,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                 imagePath: c.imagepath,
                               ),
                               RoundedCard(
-                                  onTap: (){
+                                  onTap: () async{
+                              dynamic files = await FileModel.getAllFiles(cpp.extension.toString());
                                     Navigator.push(context,
                                         MaterialPageRoute( builder:  (context) => ExistingFilesScreen(
-                                          choosedLan: java,
+                                          choosedLan: cpp,
+                                          files:files,
                                         ))
                                     );
                                   },
-                                  imagePath: java.imagepath,
-                                  cardText: java.name
+                                  imagePath: cpp.imagepath,
+                                  cardText: cpp.name
                               ),
                             ],
                           ),
@@ -204,10 +209,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           Row(
                             children: [
                               RoundedCard(
-                                  onTap: (){
+                                  onTap: () async{
+                                    dynamic files = await FileModel.getAllFiles(php.extension.toString());
                                     Navigator.push(context,
                                         MaterialPageRoute( builder:  (context) => ExistingFilesScreen(
                                           choosedLan: php,
+                                          files: files,
                                         ))
                                     );
                                   },
@@ -215,11 +222,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                   cardText: php.name
                               ),
                               RoundedCard(
-                                  onTap: (){
+                                  onTap: () async{
+                                    dynamic files = await FileModel.getAllFiles(python.extension.toString());
 //                                    Navigator.pushNamed(context,CreateFileScreen.id , arguments:  {python.name} );
                                   Navigator.push(context,
                                   MaterialPageRoute( builder:  (context) => ExistingFilesScreen(
                                     choosedLan: python,
+                                    files: files,
                                   ))
                                   );
                                   },

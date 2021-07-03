@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:voice_code/models/language.dart';
 import 'package:voice_code/screens/FileTap.dart';
 import 'package:voice_code/models/FileModel.dart';
-import 'package:voice_code/models/GlotApi.dart';
 
 
 class CreateFileScreen extends StatefulWidget {
@@ -33,8 +32,6 @@ class _CreateFileScreenState extends State<CreateFileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double kwidth = ( MediaQuery.of(context).size.width);
-    final double kheight = ( MediaQuery.of(context).size.height);
 
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.black12,),

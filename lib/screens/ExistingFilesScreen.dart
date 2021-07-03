@@ -7,25 +7,28 @@ import 'package:voice_code/screens/CreateFileScreen.dart';
 class ExistingFilesScreen extends StatefulWidget {
   static const String id = 'ExistingFilesScreen';
   final Language choosedLan;
-  ExistingFilesScreen({this.choosedLan});
+  final dynamic files;
+  ExistingFilesScreen({this.choosedLan , this.files});
   @override
   _ExistingFilesScreenState createState() => _ExistingFilesScreenState();
 }
 
+  dynamic files;
 class _ExistingFilesScreenState extends State<ExistingFilesScreen> {
   Language selectedLan ;
-  List files;
   @override
   void initState(){
     super.initState();
     selectedLan = new Language(widget.choosedLan.name, widget.choosedLan.imagepath, widget.choosedLan.extension, widget.choosedLan.welcomeMessage);
+    files = widget.files;
+    print(files);
     print(widget.choosedLan.extension);
-    FileModel.getAllFiles(widget.choosedLan.extension.toString()).then(
-        (val) => {
-          files = val
-        }
-    );
-
+    // FileModel.getAllFiles(widget.choosedLan.extension.toString()).then(
+    //     (val) => {
+    //       files = val
+    //     }
+    // );
+    print(files.toString());
   }
 
   @override
@@ -35,12 +38,7 @@ class _ExistingFilesScreenState extends State<ExistingFilesScreen> {
       body: Material(
         child: Stack(
           children: [
-            ListView(
-              padding: EdgeInsets.symmetric(vertical: 10,),
-              children: [
-                Text('OOps!? ... there is no projects to show ,start coding and create file'),
-              ],
-            ),
+            files.length == 0 ? Text('you have no ${selectedLan.name} project yet') : DynamicList(),
             Padding(
               padding: EdgeInsets.only(right: 10,bottom: 10),
               child: Align(
@@ -62,3 +60,20 @@ class _ExistingFilesScreenState extends State<ExistingFilesScreen> {
     );
   }
 }
+
+class DynamicList extends StatelessWidget{
+  @override
+  Widget build(context){
+    final f = files;
+    return ListView.builder(
+      itemCount: f.length,
+      itemBuilder: (context , index){
+        return ListTile(
+          title: new Text(f[index].toString()),
+        );
+      },
+    );
+  }
+}
+
+

@@ -6,9 +6,7 @@ import 'package:voice_code/services/auth.dart';
 import 'package:voice_code/services/user_service.dart';
 import 'package:voice_code/constants.dart';
 import 'Home.dart';
-import 'package:adobe_xd/page_link.dart';
 import 'SignIn.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUp extends StatefulWidget {
 
@@ -26,7 +24,6 @@ class _SignUpState extends State<SignUp> {
   final _formKey = new GlobalKey<FormState>();
 
   String _username = "";
-  String _confirmPassword = "";
   String _email = "";
   String _password = "";
   String error = '';

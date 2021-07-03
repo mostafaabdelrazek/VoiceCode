@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:voice_code/models/language.dart';
 import 'package:voice_code/screens/Home.dart';
 import 'package:voice_code/screens/SignIn.dart';
 import 'package:voice_code/screens/SignUp.dart';
 import 'package:voice_code/screens/LoadingScreen.dart';
 import 'package:voice_code/screens/CreateFileScreen.dart';
-import 'package:voice_code/screens/LoadingScreen.dart';
 import 'package:voice_code/screens/FileTap.dart';
 import 'package:voice_code/screens/ExistingFilesScreen.dart';
 

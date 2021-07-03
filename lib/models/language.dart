@@ -10,7 +10,7 @@ Language python = new Language(
     'Python', 'assets/pyicon.png', 'py' ,
     'print("Hello World!")\n'
 );
-Language java = new Language(
+Language cpp = new Language(
     'C++', 'assets/javaicon.png', 'cpp' ,
   '#include <iostream>\nusing namespace std;\n\n int main() {\n\tcount<< "Hello World!";\n\treturn 0;\n}'
 );
